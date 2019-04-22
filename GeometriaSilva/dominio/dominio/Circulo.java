@@ -1,9 +1,13 @@
 package dominio;
 
+<<<<<<< Updated upstream
 
 public class Circulo extends Poligono implements CalculaArea, CalculaPerimetro, CalculaCoordenadas {
 
 
+=======
+public class Circulo extends Poligono implements Medible {
+>>>>>>> Stashed changes
 	private double radio;
 	private Punto origen;
 	
