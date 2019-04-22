@@ -3,6 +3,7 @@ package dominio;
 
 public class Circulo extends Poligono implements CalculaArea, CalculaPerimetro, CalculaCoordenadas {
 
+
 	private double radio;
 	private Punto origen;
 	
