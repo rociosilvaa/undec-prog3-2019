@@ -2,7 +2,7 @@ package dominio;
 
 import java.util.ArrayList;
 
-public class Rectangulo  extends Poligono implements Medible{
+public class Rectangulo  extends Poligono implements CalculaArea, CalculaPerimetro, CalculaCoordenadas{
 		private double base;
 		private double altura;
 	   
@@ -11,27 +11,17 @@ public class Rectangulo  extends Poligono implements Medible{
 	     this.miOrigen= p1;
 	     this.setBase(base);
 	     this.setAltura(altura);
-	    
 	     this.generarCoordenadas(p1, base, altura);
-	     
-
-		
 	}
 	
 	public Rectangulo(double base, double altura) throws ExceptionRectangulo {
-		
 		this(new Punto (),base,altura);
-        
-	
-
 	}
 	private void generarCoordenadas(Punto p1, double base2, double altura2) {
 		     this.misVertices.add(p1);  
 		     this.misVertices.add(new Punto ((this.misVertices.get(0).getX()),(p1.getY()+altura2)));
 		     this.misVertices.add(new Punto((this.misVertices.get(1).getX()+base2), (p1.getY()+altura2)));
 		   this.misVertices.add(new Punto( ((p1.getX()+base2)),p1.getY()));
-		  
-	
 	}
 
 	public void setBase(double base) throws ExceptionRectangulo {
@@ -49,25 +39,32 @@ public class Rectangulo  extends Poligono implements Medible{
 		this.altura=altura;
 	}
 
+	public double getAltura() {
+		return altura;
+	}
+	public double getBase() {
+		return base;
+	}
+    
 	@Override
 	public double getArea() {
-		return this.base*this.altura;
+		return this.getBase()*this.getAltura();
 	}
 
-	@Override
 	public double getPerimetro() {
-		return (this.altura*2)+(this.base*2);
+		return (this.getAltura()*2)+(this.getBase()*2);
 	}
 
 	@Override
 	public String getMisCoordenadas() {
 		return "Mis cuatro coordenadas son: "+this.misVertices.get(0).getCoordenada()+" - "+this.misVertices.get(0).getCuadrante()+", "+this.misVertices.get(1).getCoordenada()+" - "+this.misVertices.get(1).getCuadrante()+", "+this.misVertices.get(2).getCoordenada()+" - "+this.misVertices.get(2).getCuadrante()+", "+this.misVertices.get(3).getCoordenada()+" - "+this.misVertices.get(3).getCuadrante();
 	}
-
-	@Override
 	public String toString() {
-     return "Soy un Rectangulo, con un area de: "+this.getArea()+" y un perimetro de: "+this.getPerimetro();
+		return super.getResumen("Soy un Rectangulo, con un area de: "+this.getArea()+" y un perimetro de: "+this.getPerimetro());
 	}
+	
+
+	
 	
 
 	

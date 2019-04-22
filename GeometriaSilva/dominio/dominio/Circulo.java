@@ -1,6 +1,6 @@
 package dominio;
 
-public class Circulo implements Medible {
+public class Circulo extends Poligono implements CalculaArea, CalculaPerimetro, CalculaCoordenadas {
 	private double radio;
 	private Punto origen;
 	
@@ -24,7 +24,7 @@ public class Circulo implements Medible {
 		
 	@Override
 	public String toString() {
-		return "Soy un Circulo, con un area de: "+ this.getArea()+" y un perimetro de: "+this.getPerimetro();
+		return this.getResumen("Soy un Circulo, con un area de: "+ this.getArea()+" y un perimetro de: "+this.getPerimetro());
 
 	}
 	

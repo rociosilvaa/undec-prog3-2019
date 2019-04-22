@@ -2,7 +2,7 @@ package dominio;
 
 import java.util.ArrayList;
 
-public class Triangulo extends Poligono implements Medible{
+public class Triangulo extends Poligono implements  CalculaArea, CalculaPerimetro, CalculaCoordenadas{
 
 	public Triangulo(Punto p1, Punto p2, Punto p3) throws ExceptionTriangulo {
 		
@@ -58,12 +58,10 @@ double suma;
     resta3 = ((this.misVertices.get(2).distanciaEntreDosPuntos(this.misVertices.get(0))));
     suma= (resta1+resta2+resta3)/2;
     return Math.sqrt(suma*(suma-resta1)*(suma-resta2)*(suma-resta3));
-    
-    
 	}	
 	
 public String toString() {
-		return "Soy un Triangulo, con un area de: "+this.getArea()+" y un perimetro de: "+this.getPerimetro();
+		return super.getResumen("Soy un Triangulo, con un area de: "+this.getArea()+" y un perimetro de: "+this.getPerimetro());
 	}
 
 	@Override
